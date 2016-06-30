@@ -9,8 +9,8 @@ github = OAuth2Service(
     base_url='https://api.github.com/',
     access_token_url='https://github.com/login/oauth/access_token',
     authorize_url='https://github.com/login/oauth/authorize',
-    client_id= os.environ['GITHUB_CLIENT_ID'],
-    client_secret= os.environ['GITHUB_CLIENT_SECRET'],
+    client_id= os.environ.get('GITHUB_CLIENT_ID'),
+    client_secret= os.environ.get('GITHUB_CLIENT_SECRET'),
 )
 
 @application.route("/")
