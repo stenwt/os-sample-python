@@ -1,0 +1,3 @@
+[submodule "rauth"]
+	path = rauth
+	url = https://github.com/litl/rauth
