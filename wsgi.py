@@ -17,7 +17,7 @@ github = OAuth2Service(
 def index():
     return render_template('login.html')
 
-@app.route('/about')
+@application.route('/about')
 def about():
     if session.has_key('token'):
         auth = github.get_session(token = session['token'])
@@ -30,7 +30,7 @@ def about():
         return redirect(url_for('login'))
 
 
-@app.route('/login')
+@application.route('/login')
 def login():
     redirect_uri = url_for('authorized', next=request.args.get('next') or 
         request.referrer or None, _external=True)
@@ -40,7 +40,7 @@ def login():
     print(github.get_authorize_url(**params))
     return redirect(github.get_authorize_url(**params))
 
-@app.route('/github/callback')
+@application.route('/github/callback')
 def authorized():
     # check to make sure the user authorized the request
     if not 'code' in request.args:
